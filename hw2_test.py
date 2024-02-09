@@ -65,7 +65,9 @@ def test_model1_dense():
   assert n_dense == 2
 
 def test_model2_params():
-  assert model2.count_params() == 104138
+  # should really be 104106 if the model is built correctly.  Leaving in 104138
+  # for compatibility with earlier (incorrect) test script
+  assert model2.count_params() in [104106, 104138] 
 
 def test_model3_params():
   assert model3.count_params() == 709066
